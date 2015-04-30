@@ -24,4 +24,20 @@ describe(Game) do
     end
   end
 
+  describe('#message') do
+    it('returns a message about the game state') do
+      new_game = Game.new()
+      expect(new_game.message()).to(eq("Welcome to Tic Tac Toe!"))
+      new_game.take_turn(0, 2)
+      expect(new_game.message()).to(eq("O's Turn"))
+      new_game.take_turn(1, 0)
+      expect(new_game.message()).to(eq("X's Turn"))
+      new_game.take_turn(1, 1)
+      new_game.take_turn(2, 2)
+      new_game.take_turn(2, 0)
+      expect(new_game.message()).to(eq("The winner is: X!"))
+    end
+
+  end
+
 end
