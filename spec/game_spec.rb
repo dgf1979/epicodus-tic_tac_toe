@@ -40,4 +40,26 @@ describe(Game) do
 
   end
 
+  describe('#ai_turn') do
+    it('makes a winning move given the opportunity (X wins)') do
+      new_game = Game.new()
+      new_game.take_turn(1, 1)
+      new_game.take_turn(1, 0)
+      new_game.take_turn(0, 1)
+      new_game.take_turn(0, 0)
+      new_game.take_turn(1, 2)
+      new_game.ai_turn()
+      expect(new_game.message()).to(eq("The winner is: O!"))
+    end
+
+    it('blocks a potential win by the other player') do
+      new_game = Game.new()
+      new_game.take_turn(1, 1)
+      new_game.take_turn(2, 0)
+      new_game.take_turn(2, 1)
+      new_game.ai_turn()
+      expect(new_game.board.find_mark(0, 1)).to(eq("O"))
+    end
+  end
+
 end

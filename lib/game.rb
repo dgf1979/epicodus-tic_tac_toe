@@ -20,6 +20,67 @@ class Game
     @@game
   end
 
+  define_method(:ai_turn) do
+
+    insertIndex = -1
+
+    compareX = ["", "X", "X"]
+    compareO = ["", "O", "O"]
+    # rule 1 - if you can complete 3 in a row, do it
+    possibles = []
+    #horizontal
+    possibles.push([0, 1, 2])
+    possibles.push([3, 4, 5])
+    possibles.push([6, 7, 8])
+    #vertical
+    possibles.push([0, 3, 6])
+    possibles.push([1, 4, 7])
+    possibles.push([2, 5, 8])
+    #diagonal
+    possibles.push([0, 4, 8])
+    possibles.push([2, 4, 6])
+
+    possibles.each() do |possible|
+      line = []
+      possible.each() do |board_index|
+        player = @board.spaces[board_index].marked_by
+        if player == nil
+          line.push("")
+        else
+          line.push(player.mark)
+        end
+      end
+      if(line.sort() == compareO)
+        x = possible[line.index("")]%3
+        y = (possible[line.index("")]/3).floor()
+        return take_turn(x, y)
+      end
+    end
+
+    possibles.each() do |possible|
+      line = []
+      possible.each() do |board_index|
+        player = @board.spaces[board_index].marked_by
+        if player == nil
+          line.push("")
+        else
+          line.push(player.mark)
+        end
+      end
+      if(line.sort() == compareX)
+        x = possible[line.index("")]%3
+        y = (possible[line.index("")]/3).floor()
+        return take_turn(x, y)
+      end
+    end
+
+    # rule 2 - if the opponent had 2 in a row, block it
+
+    # rule 3 - add a mark where you are not blocked from making 3
+
+    #take_turn(,)
+  end
+
   define_method(:take_turn) do |x, y|
     if @board.find(x, y).marked_by == nil && @board.check_winner == ""
       if(@player1_turn)
