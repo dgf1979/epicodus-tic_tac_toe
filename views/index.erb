@@ -1,0 +1,81 @@
+<%= @x %>
+<br />
+<%= @y %>
+
+
+<div id="ttt_game">
+  <table>
+    <!-- top row -->
+    <tr>
+      <td> <!-- row 1, col 1 -->
+        <a href='/move/0/0'>
+          <div class="game_piece">
+            <%= @board.find_mark(0, 0) %>
+          </div>
+        </a>
+      </td>
+      <td> <!-- row 1, col 2 -->
+        <a href='/move/1/0'>
+          <div class="game_piece">
+            <%= @board.find_mark(1, 0) %>
+          </div>
+        </a>
+      </td>
+      <td>
+        <a href='/move/2/0'>
+          <div class="game_piece">
+            <%= @board.find_mark(2, 0) %>
+          </div>
+        </a>
+      </td>
+    </tr>
+    <!-- middle row -->
+    <tr>
+      <td>
+        <a href='/move/0/1'>
+          <div class="game_piece">
+            <%= @board.find_mark(0, 1) %>
+          </div>
+        </a>
+      </td>
+      <td>
+        <a href='/move/1/1'>
+          <div class="game_piece">
+            <%= @board.find_mark(1, 1) %>
+          </div>
+        </a>
+      </td>
+      <td>
+        <a href='/move/2/1'>
+          <div class="game_piece">
+            <%= @board.find_mark(2, 1) %>
+          </div>
+        </a>
+      </td>
+    </tr>
+    <!-- bottom row -->
+    <tr>
+      <td>
+        <a href='/move/0/2'>
+          <div class="game_piece">
+            <%= @board.find_mark(0, 2) %>
+          </div>
+        </a>
+      </td>
+      <td>
+        <a href='/move/1/2'>
+          <div class="game_piece">
+            <%= @board.find_mark(1, 2) %>
+          </div>
+        </a>
+      </td>
+      <td>
+        <a href='/move/2/2'>
+          <div class="game_piece">
+            <%= @board.find_mark(2, 2) %>
+          </div>
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>

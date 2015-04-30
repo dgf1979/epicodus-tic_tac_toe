@@ -1,0 +1,14 @@
+#ttt_game table {
+  border-collapse: collapse;
+}
+
+#ttt_game table, th, td {
+  border: 2px solid black;
+  margin: 0;
+  padding: 0;
+}
+
+div.game_piece {
+  height: 40px;
+  width: 40px;
+}
