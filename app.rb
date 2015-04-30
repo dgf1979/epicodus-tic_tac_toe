@@ -47,3 +47,12 @@ post("/new_game") do
   @message = this_game.message
   erb(:index)
 end
+
+post("/ai_turn") do
+  this_game = Game.load()
+  this_game.ai_turn()
+  this_game.save()
+  @board = this_game.board
+  @message = this_game.message
+  erb(:index)
+end

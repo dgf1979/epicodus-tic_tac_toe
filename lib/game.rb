@@ -26,7 +26,7 @@ class Game
 
     compareX = ["", "X", "X"]
     compareO = ["", "O", "O"]
-    # rule 1 - if you can complete 3 in a row, do it
+
     possibles = []
     #horizontal
     possibles.push([0, 1, 2])
@@ -39,6 +39,8 @@ class Game
     #diagonal
     possibles.push([0, 4, 8])
     possibles.push([2, 4, 6])
+
+    # rule 1 - if you can complete 3 in a row, do it
 
     possibles.each() do |possible|
       line = []
@@ -57,6 +59,8 @@ class Game
       end
     end
 
+    # rule 2 - if the opponent had 2 in a row, block it
+
     possibles.each() do |possible|
       line = []
       possible.each() do |board_index|
@@ -74,9 +78,15 @@ class Game
       end
     end
 
-    # rule 2 - if the opponent had 2 in a row, block it
-
     # rule 3 - add a mark where you are not blocked from making 3
+
+    @board.spaces.each_index() do |index|
+      if(@board.spaces[index].marked_by == nil)
+        x = index%3
+        y = (index/3).floor()
+        return take_turn(x, y)
+      end
+    end
 
     #take_turn(,)
   end
