@@ -52,7 +52,7 @@ class Board
       if self.find_mark(0, 0) == self.find_mark(1, 1) && self.find_mark(1, 1) == self.find_mark(2, 2)
         return self.find_mark(1, 1)
       elsif self.find_mark(2, 0) == self.find_mark(1, 1) && self.find_mark(1, 1) == self.find_mark(0, 2)
-        self.find_mark(1, 1)
+        return self.find_mark(1, 1)
       end
     end
 
