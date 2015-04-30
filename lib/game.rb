@@ -21,7 +21,7 @@ class Game
   end
 
   define_method(:take_turn) do |x, y|
-    if @board.find(x, y).marked_by == nil
+    if @board.find(x, y).marked_by == nil && @board.check_winner == ""
       if(@player1_turn)
         @message = "O's Turn"
         @board.find(x, y).mark_by(@player1)
@@ -33,7 +33,7 @@ class Game
       @player1_turn = !@player1_turn
 
       if @board.check_winner != ""
-        @message = "The winner is: #{@board.check_winner()}!" 
+        @message = "The winner is: #{@board.check_winner()}!"
       end
     end
   end

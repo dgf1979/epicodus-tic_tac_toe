@@ -9,3 +9,10 @@ describe("Sinatra test", {:type => :feature}) do
     expect(page).to have_content('Sinatra OK')
   end
 end
+
+describe("tic tac toe game", {:type => :feature}) do
+  it('message text on new game') do
+    visit('/')
+    expect(page).to have_content("Welcome")
+  end
+end

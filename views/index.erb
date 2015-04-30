@@ -1,7 +1,5 @@
-<%= @x %>
-<br />
-<%= @y %>
 
+<h2><%= @message %></h2>
 
 <div id="ttt_game">
   <table>
@@ -10,21 +8,22 @@
       <td> <!-- row 1, col 1 -->
         <a href='/move/0/0'>
           <div class="game_piece">
-            <%= @board.find_mark(0, 0) %>
+            <!-- <%= @board.find_mark(0, 0) %> -->
+            <img src="/img/tile<%= @board.find_mark(0, 0) %>.png" alt="">
           </div>
         </a>
       </td>
       <td> <!-- row 1, col 2 -->
         <a href='/move/1/0'>
           <div class="game_piece">
-            <%= @board.find_mark(1, 0) %>
+            <img src="/img/tile<%= @board.find_mark(1, 0) %>.png" alt="">
           </div>
         </a>
       </td>
       <td>
         <a href='/move/2/0'>
           <div class="game_piece">
-            <%= @board.find_mark(2, 0) %>
+            <img src="/img/tile<%= @board.find_mark(2, 0) %>.png" alt="">
           </div>
         </a>
       </td>
@@ -34,21 +33,21 @@
       <td>
         <a href='/move/0/1'>
           <div class="game_piece">
-            <%= @board.find_mark(0, 1) %>
+            <img src="/img/tile<%= @board.find_mark(0, 1) %>.png" alt="">
           </div>
         </a>
       </td>
       <td>
         <a href='/move/1/1'>
           <div class="game_piece">
-            <%= @board.find_mark(1, 1) %>
+            <img src="/img/tile<%= @board.find_mark(1, 1) %>.png" alt="">
           </div>
         </a>
       </td>
       <td>
         <a href='/move/2/1'>
           <div class="game_piece">
-            <%= @board.find_mark(2, 1) %>
+            <img src="/img/tile<%= @board.find_mark(2, 1) %>.png" alt="">
           </div>
         </a>
       </td>
@@ -58,24 +57,30 @@
       <td>
         <a href='/move/0/2'>
           <div class="game_piece">
-            <%= @board.find_mark(0, 2) %>
+            <img src="/img/tile<%= @board.find_mark(0, 2) %>.png" alt="">
           </div>
         </a>
       </td>
       <td>
         <a href='/move/1/2'>
           <div class="game_piece">
-            <%= @board.find_mark(1, 2) %>
+            <img src="/img/tile<%= @board.find_mark(1, 2) %>.png" alt="">
           </div>
         </a>
       </td>
       <td>
         <a href='/move/2/2'>
           <div class="game_piece">
-            <%= @board.find_mark(2, 2) %>
+            <img src="/img/tile<%= @board.find_mark(2, 2) %>.png" alt="">
           </div>
         </a>
       </td>
     </tr>
   </table>
 </div>
+
+<br />
+
+<form action="/new_game" method="post">
+  <button id="new_game" type="submit">New Game</button>
+</form>

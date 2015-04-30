@@ -16,7 +16,7 @@ end
 get('/') do
 
 
-  if Game.load == nil #start a new game if one is not in progress
+  if Game.load() == nil #start a new game if one is not in progress
     this_game = Game.new()
     this_game.save()
   else #load game if one is in progress
@@ -24,6 +24,7 @@ get('/') do
   end
 
   @board = this_game.board
+  @message = this_game.message
 
   erb(:index)
 end
@@ -32,8 +33,17 @@ get('/move/:x/:y') do
   x = params.fetch('x').to_i()
   y = params.fetch('y').to_i()
   this_game = Game.load()
-  this_game.take_turn(x, y) 
+  this_game.take_turn(x, y)
   @board = this_game.board
+  @message = this_game.message
   this_game.save()
+  erb(:index)
+end
+
+post("/new_game") do
+  this_game = Game.new()
+  this_game.save()
+  @board = this_game.board
+  @message = this_game.message
   erb(:index)
 end
